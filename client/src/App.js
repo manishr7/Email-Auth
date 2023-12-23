@@ -28,7 +28,7 @@ function App() {
   };
   const handleSubmit = async () => {
     if (validateEmail(email) &&(email!== ""&&password!== "" )) {
-      const res = await fetch("/api/user/signup", {
+      const res = await fetch("https://e-sec.onrender.com/api/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +64,7 @@ function App() {
   }
   const handleLogin=async () => {
     if (validateEmail(email) &&(email!== ""&&password!== "" )) {
-      const res = await fetch("/api/user/login", {
+      const res = await fetch("https://e-sec.onrender.com/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
