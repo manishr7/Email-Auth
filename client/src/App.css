@@ -1,0 +1,160 @@
+.nav
+{
+    
+   height: 7rem;
+}
+.nav::before
+{
+    z-index: -2;
+    position: absolute;
+    top: 0;left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: url("../public/scott-graham-5fNmWej4tAA-unsplash.jpg") no-repeat center center/cover;
+    content: "";
+    opacity: 2;
+    
+}
+.nav::after
+{
+    z-index: -1;
+    position: absolute;
+    top: 0;left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, rgba(208,41,112,0.65) 0%,rgba(83,205,234,0.65) 100%);
+    content: "";
+    
+}
+.image 
+{
+    transition: transform 2s , scale 2s ;
+}
+.image:hover
+{
+    transform: rotate(360deg) scale(1.5) ;
+
+}
+
+
+
+.navbar-dark, .navbar[data-bs-theme=dark] {
+    --bs-navbar-color:rgb(255, 255, 255) !important;
+}
+.navbar-nav{
+    --bs-nav-link-hover-color: rgb(167, 232, 255) !important;
+}
+.nav-link
+{
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    font-family: 'Oswald,Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+    margin-bottom: 1rem !important;
+    letter-spacing: 1px !important;
+}
+.navbar-brand {
+    font-family: 'Oswald,Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+    letter-spacing: 2px !important;
+}
+body{
+
+    font-family: 'Oswald,Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+    color: white !important;
+    overflow-x: hidden !important;
+}
+.first
+{
+  font-weight: bolder !important;
+  letter-spacing: 3px !important;  
+  margin-bottom: 1rem !important;
+  /* padding-inline: 4rem !important; */
+}
+.second
+{
+    letter-spacing: 2px !important;   
+}
+@media (max-width: 576px){
+.signin {
+    width: 100% !important;
+} 
+.nav::before
+{
+    height: 160vh ;
+}
+.nav::after
+{
+    height: 160vh ;
+}
+.cont1
+{
+    margin-top: 7rem !important;
+}
+}
+.btn-primary {
+  
+    --bs-btn-bg: rgb(81, 209, 255) !important;
+    --bs-btn-border-color: rgb(81, 209, 255) !important;
+    --bs-btn-hover-color:black !important;
+    --bs-btn-hover-bg: #ffffff !important;
+    --bs-btn-hover-border-color: rgb(81, 209, 255) !important;
+    
+}
+.btn {
+    --bs-btn-padding-x: 1.5rem !important;
+    --bs-btn-font-family:'Oswald,Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important; ;
+    --bs-btn-font-size: 1.1rem !important;
+    --bs-btn-font-weight: bolder !important;
+    --bs-btn-border-width: 2px !important;
+    --bs-btn-box-shadow: 0 .5rem 1rem rgb(81, 209, 255) !important;
+    letter-spacing: 2px !important;
+    transition: color .3s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+}
+.card {
+    --bs-card-spacer-y: 2rem !important;
+    --bs-card-spacer-x: 2rem !important;
+    height: fit-content !important;
+    border-radius: 13px !important;
+}
+.card-header {
+  
+    font-weight: bolder !important;
+    letter-spacing: 3px !important;
+    font-size: 3rem !important;
+    margin-top: 1.3rem !important;
+    margin-bottom: 1.5rem !important;
+    color: rgba(41, 29, 41, 0.636) !important;
+}
+.form-control {
+ 
+    font-size: 1.2rem !important;
+    font-weight:800 !important;
+    letter-spacing: 1px !important;
+    color: grey !important;
+    
+    border: var(--bs-border-width) solid rgba(128, 128, 128, 0.625) !important;
+   
+}
+.modal {
+    
+    --bs-modal-padding: 3rem !important;
+
+
+}
+.modal-header
+{
+    background-color: rgb(181,92,144) !important;
+}
+.modal-header .h4{
+   
+    font-size: 3.5rem !important;
+    font-weight: bolder !important;
+    color: white !important;
+    letter-spacing: 3px !important;
+    margin-left:4rem !important ;
+    margin-right: 0 !important;
+    text-align: center !important;
+   
+}
+.modal-header .btn-close {
+    margin-right: 0.8rem !important;
+}
