@@ -7,7 +7,19 @@ import router from "./Routes/userRoutes.js"
 
 
 const app=express();
-app.use(cors());
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+  };
+app.use(cors(corsOpts));
 const port=process.env.PORT;
 app.use(express.json());
 
