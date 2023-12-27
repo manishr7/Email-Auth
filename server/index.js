@@ -6,14 +6,8 @@ import cors from "cors";
 import router from "./Routes/userRoutes.js";
 
 const app = express();
-const corsOpts = {
-  origin: "*",
 
-  methods: ["GET", "POST"],
-
-  allowedHeaders: ["Content-Type"],
-};
-app.use(cors(corsOpts));
+app.use(cors());
 const port = process.env.PORT;
 app.use(express.json());
 app.get("/", (req, res) => {
