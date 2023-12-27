@@ -1,0 +1,11 @@
+@media (max-width: 576px){
+    img{
+     margin-left: 1px ;
+     height: 27px;
+     width: 27px;
+    }
+    .signinbtn
+{
+    margin-left: 1.5rem !important;
+}
+    }

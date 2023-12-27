@@ -1,5 +1,6 @@
 import "./App.css";
-
+import Spinner from "./spinner";
+import Spinner2 from "./spinner2";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -9,7 +10,7 @@ import Stack from "react-bootstrap/Stack";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 export const ex = { existing: null };
@@ -17,6 +18,8 @@ function App() {
   const [show, setShow] = useState(false);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [loading, setloading] = useState(false)
+  const [loading2, setloading2] = useState(false)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const validateEmail = (str) => {
@@ -26,7 +29,13 @@ function App() {
       return false;
     }
   };
+  useEffect(() => {
+    setemail("");
+    setpassword("");
+  }, [show])
+  
   const handleSubmit = async () => {
+    setloading(true);
     if (validateEmail(email) &&(email!== ""&&password!== "" )) {
       const res = await fetch("https://e-sec.onrender.com/api/user/signup", {
         method: "POST",
@@ -40,6 +49,7 @@ function App() {
         }),
       });
       const data = res.json();
+      setloading(false)
       if (!data) {
         window.alert("invalid Authentication");
         console.log("Invalid Authentication");
@@ -57,12 +67,15 @@ function App() {
     else if(email===""|| password==="" )
     {
       window.alert("Please enter the complete details before signing up!")
+      setloading(false)
     }
     else if(!validateEmail(email)){
       window.alert("Please Enter A Valid Email Address!");
+      setloading(false)
     }
   }
   const handleLogin=async () => {
+    setloading2(true);
     if (validateEmail(email) &&(email!== ""&&password!== "" )) {
       const res = await fetch("https://e-sec.onrender.com/api/user/login", {
         method: "POST",
@@ -75,26 +88,29 @@ function App() {
         }),
       });
       const data = await res.json();
+      setloading(false);
       if (!data) {
+        setloading2(false);
         window.alert("invalid Authentication");
         console.log("Invalid Authentication");
       } else {
         if (res.status === 200) {
+          setloading2(false);
           console.log(data)
           window.alert(`Welcome ! You Are Now Logged In..`);
           console.log("User logged in successfully");
         } else if (res.status === 400) {
-          
+          setloading2(false);
           window.alert("Cannot Find Any User Matching The Entered Credentials..! Try again with correct email and password");
           console.log("login failed");
         }
         else if (res.status === 401) {
-          
+          setloading2(false);
           window.alert("Account Blocked Due to Multiple Wrong Attempts! Account will reactivate after a minute now...");
           console.log("login failed");
         }
         else if (res.status === 402) {
-          
+          setloading2(false);
           window.alert(data.message);
           console.log("login failed");
         }
@@ -103,9 +119,11 @@ function App() {
     else if(email===""|| password==="" )
     {
       window.alert("Please enter the complete details before signing in!")
+      setloading2(false)
     }
     else if(!validateEmail(email)){
       window.alert("Please Enter A Valid Email Address!");
+      setloading2(false)
     }
   };
   return (
@@ -137,6 +155,8 @@ function App() {
               />
             </Form.Group>
           </Form>
+          
+          
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -149,6 +169,15 @@ function App() {
           >
             Sign Up
           </Button>
+          {
+            loading?
+            (
+             <>
+             <Spinner/>
+             </>
+            ):null
+          }
+          
         </Modal.Footer>
       </Modal>
       <Navbar expand="md" className="nav" bg="transparent" data-bs-theme="dark">
@@ -233,10 +262,18 @@ function App() {
               </Form>
 
               {
-                <Button onClick={handleLogin} variant="primary" className="rounded-5 ms-5 w-75">
+                <Button onClick={handleLogin} variant="primary" className="rounded-5  w-75 signinbtn">
                   Sign In
                 </Button>
               }
+              {
+            loading2?
+            (
+             <>
+             <Spinner2/>
+             </>
+            ):null
+          }
             </Card.Body>
           </Card>
         </Col>

@@ -158,3 +158,11 @@ body{
 .modal-header .btn-close {
     margin-right: 0.8rem !important;
 }
+.modal-footer {
+    padding-inline: 1rem !important;
+    padding-block: 1rem !important;
+}
+.signinbtn
+{
+    margin-left: 3rem !important;
+}
