@@ -90,7 +90,7 @@ function App() {
         }
         else if (res.status === 401) {
           
-          window.alert("Account Blocked Due to Multiple Wrong Attempts! Account will reactivate after an hour now...");
+          window.alert("Account Blocked Due to Multiple Wrong Attempts! Account will reactivate after a minute now...");
           console.log("login failed");
         }
         else if (res.status === 402) {
