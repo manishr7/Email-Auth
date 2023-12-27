@@ -3,7 +3,7 @@ import spin from "./Gear.gif"
 import "./spinner.css"
 function Spinner2() {
   return (
-    <img className='.spinnner' src={spin} height={"48px"} width={"48px"} alt="Loading..." />
+    <img id='.spinnner' src={spin} height={"48px"} width={"48px"} alt="Loading..." />
   )
 }
 
