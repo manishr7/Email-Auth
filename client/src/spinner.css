@@ -1,8 +1,8 @@
 @media (max-width: 576px){
-    #spinnner{
-     margin-left: 1px !important ;
-     height: 27px !important;
-     width: 27px !important;
+    img{
+     margin-left: 1px ;
+     height: 27px;
+     width: 27px;
     }
     .signinbtn
 {
