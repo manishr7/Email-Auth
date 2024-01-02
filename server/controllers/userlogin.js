@@ -41,7 +41,11 @@ export const login2 = async (req, res) => {
     }
   } else {
     console.log(checkauth);
-    const thresh = checkauth.Max;
+    const thresh = checkauth?.Max ||null;
+    if(checkauth===null)
+    {
+      res.status(400).send({ message: "user not found!" });
+    }
     if (checkauth && thresh < 4) {
       const el = await Users.updateOne({ Email: email }, { $inc: { Max: 1 } });
       console.log(el);
